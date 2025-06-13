@@ -374,6 +374,22 @@ def generate_sql_query_for_retrieved_tables(selected_docs, user_question, exampl
         9. **Fuzzy matching **-Please use LIKE % incase of fuzzy matching with string for filtering purpose when there is a doubt about actual value/condition. Please prefer LIKE instead of '=' wherever applicable in SQL query.
         10. **Column name**- Show (SELECT) all the required column names/counts/aggregates(sum,max,min,avg etc.) from required table/tables to answer the question correctly.
         11. Please Replace risk_type column with risk_category1 in SQL query if it is there.
+        12.CRITICAL JOIN RULES - NEVER VIOLATE:
+            1. ID TYPE SEGREGATION:
+               - risk_id represents individual risk items
+               - risk_program_id represents risk management programs  
+               - plan_id represents risk management plans
+               - These are DIFFERENT entity types and should NEVER be joined directly
+            
+            2. FORBIDDEN JOINS:
+               - NEVER join risk_id with risk_program_id
+               - NEVER join risk_id with plan_id
+               - NEVER join plan_id with risk_program_id
+               
+            3. VALID JOIN PATTERNS:
+               - risk_id joins with tables that have risk_id as foreign key
+               - risk_program_id joins with tables that have risk_program_id as foreign key
+               - plan_id joins with tables that have plan_id as foreign key
         ## User's Question: {question}  
         ## SQL Query:  
         """,input_variables=["selected_metadata","Question_SQL_Queries_Examples", "question"])
