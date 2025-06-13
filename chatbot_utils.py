@@ -387,6 +387,7 @@ def generate_sql_query_for_retrieved_tables(selected_docs, user_question, exampl
                - NEVER join risk_id with object_id
                - NEVER join plan_id with object_id
                - NEVER join risk_program_id with object_id
+               - NEVER join on a column NOT present in the table
                
             3. VALID JOIN PATTERNS:
                - risk_id joins with tables that have risk_id as foreign key
