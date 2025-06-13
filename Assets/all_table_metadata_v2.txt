@@ -2,6 +2,11 @@ Table: ACTION_MAIN
 Description: Stores details of actions associated with a risk, which generally comes from an auditor; some risk may or may not have associated action tagged to them. Table ontains status, priority, ownership, and key dates for tracking and management fields.
 Columns:
     object_id:  (Object ID) A unique identifier for each action item, likely a system-generated hash value.
+                 {"entity_type": "GENERIC_OBJECT",
+                  "data_category": "OBJECT_IDENTIFIER",
+                  "compatible_joins": ["object_id"],
+                  "incompatible_joins": ["risk_program_id", "risk_id", "plan_id", "register_id"]
+                }
     action_id:  (Action ID) A unique reference code assigned to each action for tracking and identification.
     title:  (Title) A brief description of the action name or issue name, explaining the issue or task to be addressed.
     status:  (Status) The current state of the action item (e.g., Open, Closed, In Progress, Review).
@@ -393,6 +398,11 @@ and monitoring the lifecycle of various
 risk programs from initiation through completion.
 Columns:
     risk_program_id:  (Program ID) Unique identifier for a specific risk program.
+                    { "entity_type": "RISK_PROGRAM",
+                      "data_category": "PROGRAM_IDENTIFIER", 
+                      "compatible_joins": ["risk_program_id"],
+                      "incompatible_joins": ["object_id", "risk_id", "plan_id", "register_id"]
+                    }
     plan_name:  (Plan) Name of the risk plan under which the program falls.
     risk_program_name:  (Name) Title or focus area of the risk program.
     status_of_risk_program:  (Status of Risk Program) Current status of the risk program (e.g., Not Commenced, In Progress, Completed).
