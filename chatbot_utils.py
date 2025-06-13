@@ -384,7 +384,9 @@ def generate_sql_query_for_retrieved_tables(selected_docs, user_question, exampl
             2. FORBIDDEN JOINS:
                - NEVER join risk_id with risk_program_id
                - NEVER join risk_id with plan_id
-               
+               - NEVER join risk_id with object_id
+               - NEVER join plan_id with object_id
+               - NEVER join risk_program_id with object_id
                
             3. VALID JOIN PATTERNS:
                - risk_id joins with tables that have risk_id as foreign key
