@@ -517,6 +517,30 @@ Serves as a comprehensive repository of risks, tracking their details, ratings, 
 Columns:
     object_id:  (Object ID) Unique system-generated identifier for the risk record.
     risk_id:  (Risk ID) Unique risk identifier assigned to each risk entry.
+            {"semantic_identity": "individual_risk_identifier",
+              "business_meaning": "specific_risk_item_primary_key",
+              "entity_represents": "single_risk_occurrence"
+              "natural_language_descriptors": [
+                "individual risk identifier",
+                "specific risk ID",
+                "risk item number",
+                "unique risk reference",
+                "risk entry identifier"
+              ],
+              "valid_relationships": [
+                "risk_register.risk_id",
+                "risk_assessment.risk_id", 
+                "risk_mitigation.risk_id"
+              ],
+              "invalid_relationships": [
+                "risk_program.risk_program_id",
+                "risk_plan.plan_id"
+              ],
+              "relationship_rules": {
+                "joins_with": ["tables_containing_risk_id_foreign_key"],
+                "never_joins_with": ["risk_program_id", "plan_id", "program_id"]
+              }
+            }
     risk_custom_id:  (Risk Custom Id) Custom risk ID used for internal tracking and classification.
     created_date:  (Created Date) Date when the risk was first identified and recorded.
     risk_name:  (Risk Title) Name or title assigned to the risk for reference.
