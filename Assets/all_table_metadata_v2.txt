@@ -369,6 +369,16 @@ Description: Table contains name of the risk management plans which outlines a s
 Columns:
     plan_id:  (Plan ID) Unique identifier for a specific risk management plan.
     plan_name:  (Plan Name) Name of the risk plan, indicating its purpose or focus.
+                {"semantic_identity": "master_risk_management_plan_name",
+                  "business_meaning": "primary_organizational_risk_plan_identifier",
+                  "natural_language_descriptors": [
+                    "master risk management plan",
+                    "primary risk plan name",
+                    "organizational risk strategy name",
+                    "main risk assessment plan",
+                    "enterprise risk management plan",
+                    "risk planning framework name"
+                  ]}
     status:  (Status) Current state of the risk plan (e.g., Active, Inactive, Completed).
     period:  (Period) Duration covered by the risk plan, defined by a start and end date.
     created_by:  (Created by) Name of the person who created or initiated the risk plan.
@@ -459,6 +469,26 @@ financial, compliance, technology, and reputational risks.
 Columns:
     register_id:  (Register ID) Unique identifier for the risk register entry.
     plan_name:  (Plan Name) Name of the risk register, describing the category or focus of risks recorded (e.g., IT risks, operational risks).
+                {"semantic_identity": "risk_register_name",
+                  "business_meaning": "risk_register_identification_label",
+                  "natural_language_descriptors": [
+                    "risk register name",
+                    "risk register title",
+                    "risk catalog name",
+                    "risk inventory identifier",
+                    "risk database name",
+                    "risk log name"
+                  ],
+                  "contextual_keywords": [
+                    "risk register",
+                    "risk catalog",
+                    "risk inventory",
+                    "risk database",
+                    "risk log",
+                    "risk repository"
+                  ],
+                  "entity_represents": "risk_register_container_name"
+                }
     status:  (Status) Current status of the risk register (e.g., Active, Inactive, Under Review).
     risks:  (Risks) the number of risks documented inside the register.
     created_by:  (Created by) Name of the individual that created the risk register; This is not the risk_owner of the risks inside the register.
